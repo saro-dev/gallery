@@ -1,21 +1,28 @@
+require('dotenv').config();
 const express = require('express');
 const multer = require('multer');
 const cors = require('cors');
 const { Pool } = require('pg');
+
 
 const app = express();
 const port = 5000;
 app.use(cors());
 
 // PostgreSQL database configuration
+// const pool = new Pool({
+//   user: 'saro',
+//   host: 'localhost',
+//   database: 'gallery_app',
+//   password: 'Sarorosy@12',
+//   port: 5432,
+// });
 const pool = new Pool({
-  user: 'saro',
-  host: 'localhost',
-  database: 'gallery_app',
-  password: 'Sarorosy@12',
-  port: 5432,
-});
 
+    connectionString: process.env.POSTGRES_URL + "?sslmode=require",
+  
+  })
+  
 // Multer configuration for handling image uploads
 const storage = multer.memoryStorage();
 const upload = multer();

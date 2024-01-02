@@ -1,4 +1,6 @@
-# Logs
+# .gitignore
+
+# Ignore logs and debugging files
 logs
 *.log
 npm-debug.log*
@@ -7,12 +9,13 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Ignore generated files and directories
 node_modules
 dist
 dist-ssr
-*.local
 
-# Editor directories and files
+
+# Ignore editor-related directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea
