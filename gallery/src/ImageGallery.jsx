@@ -9,7 +9,7 @@ const ImageGallery = () => {
   useEffect(() => {
     const fetchImageIds = async () => {
       try {
-        const response = await fetch('http://localhost:5000/images');
+        const response = await fetch('https://gallery-sepia-alpha.vercel.app/images');
         const data = await response.json();
         setImageIds(data);
       } catch (error) {
@@ -38,7 +38,7 @@ const ImageGallery = () => {
   };
   const handleDownload = () => {
     // Assuming the image URL is stored in a variable
-    const imageUrl = `http://localhost:5000/image/${imageIds[selectedImageIndex]}`;
+    const imageUrl = `https://gallery-sepia-alpha.vercel.app/image/${imageIds[selectedImageIndex]}`;
 
     // Create an anchor element and trigger a download
     const downloadLink = document.createElement('a');
@@ -52,7 +52,7 @@ const ImageGallery = () => {
       const imageIdToDelete = imageIds[selectedImageIndex];
       try {
         // Implement the logic to delete the image with the given id
-        await fetch(`http://localhost:5000/delete/${imageIdToDelete}`, {
+        await fetch(`https://gallery-sepia-alpha.vercel.app/delete/${imageIdToDelete}`, {
           method: 'DELETE',
         });
   
@@ -77,7 +77,7 @@ const ImageGallery = () => {
         {imageIds.map((id, index) => (
           <img
             key={id}
-            src={`http://localhost:5000/image/${id}`}
+            src={`https://gallery-sepia-alpha.vercel.app/image/${id}`}
             alt={`Image ${id}`}
             style={{ width: 'auto', height: '200px', margin: '10px', cursor: 'pointer' }}
             onClick={() => openModal(index)}
@@ -107,7 +107,7 @@ const ImageGallery = () => {
             </button>
 
             <img
-              src={`http://localhost:5000/image/${imageIds[selectedImageIndex]}`}
+              src={`https://gallery-sepia-alpha.vercel.app/image/${imageIds[selectedImageIndex]}`}
               alt={`Image ${imageIds[selectedImageIndex]}`}
               style={{ maxWidth: '80vw', maxHeight: '80vh', margin: '10px' }}
             />
